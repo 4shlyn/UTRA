@@ -1,4 +1,4 @@
-namespace clr{
+namespace colour{
 constexpr int S0 = A0;
 constexpr int S1 = A1;
 constexpr int S2 = A2;
