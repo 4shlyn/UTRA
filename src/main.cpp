@@ -1,22 +1,22 @@
 #include <Arduino.h>
 #include <Servo.h>
+#include "movements.h"
 
-Servo servo;
+Servo myServo;
 
 constexpr int SERVO_PIN = 6;
+int pos = 0; // servo pos
 
-void setup() {
-    servo.attach(SERVO_PIN);
-    servo.write(90); 
+void setup()
+{
+  myServo.attach(SERVO_PIN);
 }
 
-void loop() {
-    servo.write(0);
-    delay(1000);
-
-    servo.write(90);
-    delay(1000);
-
-    servo.write(180);
-    delay(1000);
+void loop()
+{  
+  elevateBox();
+  delay(1000); 
+  lowerBox();
+  delay(1000); 
+  
 }
