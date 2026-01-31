@@ -1,18 +1,14 @@
 #include <Arduino.h>
+#include <L298NX2.h>
+#include "constants.hpp"
 
-// put function declarations here:
-int myFunction(int, int);
+L298NX2 drivetrain(MOTOR_IN1_A, MOTOR_IN1_B, MOTOR_IN2_A, MOTOR_IN2_B);
 
 void setup() {
   // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-}
-
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
 }
