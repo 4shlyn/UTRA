@@ -1,18 +1,25 @@
 #include <Arduino.h>
+#include <NewPing.h>
+#include "constants.hpp"
 
-// put function declarations here:
-int myFunction(int, int);
+NewPing ultrasonic(sonar::TRIG, sonar::ECHO, sonar::max_dist);
 
 void setup() {
-  // put your setup code here, to run once:
-  int result = myFunction(2, 3);
+  Serial.begin(9600);
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-}
+  delay(50);  // Required delay between pings
 
-// put function definitions here:
-int myFunction(int x, int y) {
-  return x + y;
+  // Get distance in centimeters
+  unsigned int distance = ultrasonic.ping_cm();
+
+  if (distance == 0) {
+    Serial.println("Out of range");
+    distance = sonar::max_dist;
+  } else {
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
+  }
 }
