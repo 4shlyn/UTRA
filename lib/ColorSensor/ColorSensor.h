@@ -3,7 +3,8 @@
  * @brief TCS3200 color sensor driver interface
  */
 
-#pragma once
+#ifndef COLORSENSOR_H
+#define COLORSENSOR_H
 #include <Arduino.h>
 
 /**
@@ -96,3 +97,5 @@ private:
   unsigned long readFrequency(uint8_t s2, uint8_t s3);
   float normalize(unsigned long v, unsigned long b, unsigned long w) const;
 };
+
+#endif // COLORSENSOR_H
