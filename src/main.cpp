@@ -11,6 +11,7 @@
 #include <Arduino.h>
 #include "robot_mode.h"
 // CONFIGURE THIS
+
 constexpr RobotMode START_MODE = RobotMode::STATION_A;
 
 void setup() {
@@ -22,9 +23,9 @@ void setup() {
       runStationA();
       break;
 
-    case RobotMode::STATION_B:
-      runStationB();
-      break;
+    //case RobotMode::STATION_B:
+      //runStationB();
+      //break;
 
     case RobotMode::FINAL_RUN:
       // runFinalRun();

@@ -24,7 +24,6 @@ void turnLeft(int duration)
 {
     drivetrain.setSpeedA(-1000);
     drivetrain.setSpeedB(1000);
-
     drivetrain.forwardFor(duration);
 
 }
