@@ -11,7 +11,7 @@
 #include <L298NX2.h>
 extern L298NX2 drivetrain;
 
-/**
+/** 
  * @brief Drive the robot forward for specified time
  */
 void moveForward(int duration);
