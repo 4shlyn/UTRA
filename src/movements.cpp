@@ -1,3 +1,8 @@
+/**
+ * @file movements.cpp
+ * @brief Implementation of robot movement functions
+ */
+
 #include "movements.h"
 #include "constants.hpp"
 #include "Arduino.h"

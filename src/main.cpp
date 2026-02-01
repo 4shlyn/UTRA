@@ -1,15 +1,27 @@
+/**
+ * @file main.cpp
+ * @brief Main controller for robot navigation and servo control
+ */
+
 #include <Arduino.h>
 #include <L298NX2.h>
 #include "constants.hpp"
 #include <Servo.h>
 #include "movements.h"
-#include <ultrasonic.h>
+#include "ultrasonic.h"
+#include "StationA/Station_A.h"
+#include "StationB/Station_B.h"
+#include "robot_mode.h"
+#include "mode_select.h"
 
-// Servo myServo;
-// constexpr int SERVO_PIN = 6;
+
+Servo myServo;
+constexpr int SERVO_PIN = 6;
 int pos = 0; // servo pos
 
-
+/**
+ * @brief Initialize serial communication and attach servo motor
+ */
 void setup()
 {
   Serial.begin(9600);
@@ -18,52 +30,49 @@ void setup()
   while (!Serial && millis() - start < 2000) {}
 
   Serial.println("Testing (pls work)");
-  
-  
+  myServo.attach(SERVO_PIN);
+
 }
 
+/**
+ * @brief Main control loop - checks distance and executes movement pattern
+ */
 void loop()
 {
   // put your main code here, to run repeatedly:
 
   Serial.println(checkDistance());
-
-  // drivetrain.runA(L298N::FORWARD);
-  // drivetrain.runB(L298N::FORWARD);
-
-  // elevateBox(myServo);
-  delay(1000);
-  // lowerBox(myServo);
-  delay(1000);
-
-
-  moveForward(1000);
-  delay(500);
-  turnLeft(500);
-  delay(500);
-  turnRight(500);
-  delay(500);
-  moveForward(1000);
-  delay(500);
-  Serial.println("DONE");
 }
+void setup() {
+  Serial.begin(9600);
+  initModePins();
 
+  delay(2000);  // placement grace period
 
-// #include <Arduino.h>
-// #include "constants.hpp"
+  RobotMode mode = readRobotMode();
 
-// void setup() {
-//   Serial.begin(9600);
-//   delay(2000);
-//   Serial.println("RAW MOTOR TEST");
+  Serial.print("MODE: ");
+  Serial.println(static_cast<int>(mode));
 
-//   pinMode(dt::EN_A, OUTPUT);
-//   pinMode(dt::IN1_A, OUTPUT);
-//   pinMode(dt::IN2_A, OUTPUT);
+  switch (mode) {
+    case RobotMode::STATION_A:
+      runStationA();
+      break;
 
-//   digitalWrite(dt::IN1_A, HIGH);
-//   digitalWrite(dt::IN2_A, LOW);
-//   analogWrite(dt::EN_A, 255);
-// }
+    case RobotMode::STATION_B:
+      runStationB();
+      break;
 
-// void loop() {}
+    // case RobotMode::FINAL_RUN:
+    //   runFinalRun();
+    //   break;
+
+    // case RobotMode::TEST:
+    //   runTestMode();
+    //   break;
+
+    default:
+      Serial.println("IDLE");
+      break;
+  }
+}
