@@ -156,7 +156,7 @@ Monitor serial output at 115200 baud for debugging information.
 
 ## License
 
-This project is part of UTRA (University of Toronto Robotics Association) activities.
+This project is part of UTRA (University of Toronto Robotics Association) 2026 hackathon.
 
 ## Contributing
 
