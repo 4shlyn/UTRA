@@ -1,4 +1,4 @@
-# UTRA Robot Control System
+# UTRA Robotics Control System
 
 A modular robot control system built with Arduino framework and PlatformIO for autonomous navigation and task execution across multiple stations.
 
@@ -44,7 +44,7 @@ UTRA-main/
 │   ├── StationB/             # Station B task logic
 │   ├── StationC/             # Station C task logic
 │   └── StationTest/          # Testing routines
-├── lib/                      # Color sensor library
+├── lib/                      # Custom color sensor library
 ├── include/
 │   └── constants.hpp         # Hardware pin definitions
 └── platformio.ini            # Build configuration
@@ -156,11 +156,4 @@ Monitor serial output at 115200 baud for debugging information.
 
 ## License
 
-This project is part of UTRA (University of Toronto Robotics Association) 2026 hackathon.
-
-## Contributing
-
-When contributing, please:
-- Add Doxygen-style documentation comments to all new functions
-- Follow existing code structure and naming conventions
-- Test thoroughly before committing
+This project is a winning submission of the UTRA (University of Toronto Robotics Association) 2026 hackathon.
