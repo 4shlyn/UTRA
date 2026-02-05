@@ -2,7 +2,7 @@
 
 A modular robot control system built with Arduino framework and PlatformIO for autonomous navigation and task execution across multiple stations.
 
-## Overview
+## Project Overview
 
 This project provides a software control hub for a mobile robot platform designed to execute various station-based tasks. The architecture emphasizes clean separation of concerns, software-driven configuration, and deterministic behavior execution.
 
