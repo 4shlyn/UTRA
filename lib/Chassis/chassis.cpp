@@ -17,6 +17,17 @@ ColorName Chassis::readColor() {
   return colorSensor_.classify(colorReading);
 }
 
+int Chassis::readDistance() {
+  unsigned long distance = ultrasonic_.ping_cm(maxDistCm) / sin(ultrasonicAngle * M_PI / 180.0);
+  
+  // Return max distance if object out of range
+  if (distance == 0) {
+    distance = maxDistCm;
+  }
+
+  return static_cast<int>(distance);
+}
+
 void Chassis::followLine(ColorName lineColor, bool followLeft,
                          std::pair<int, int> speeds, bool reverse) {
   auto [inSpeed, outSpeed] = speeds;
