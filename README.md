@@ -2,7 +2,7 @@
 
 A modular robot control system built with Arduino framework and PlatformIO for autonomous navigation and task execution across multiple stations.
 
-Awarded 2nd Place Overall and 1st for Top Track Performance
+Awarded 2nd Place Overall and 1st for Top Track Performance.
 
 ## Overview
 
