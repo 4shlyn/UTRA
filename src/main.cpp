@@ -20,6 +20,15 @@ void setup() {
     case Station::STATION_A:
       runStationA();
       break;
+    case Station::STATION_B:
+      runStationB();
+      break;
+    case Station::STATION_C:
+      runStationC();
+      break;
+    case Station::STATION_D:
+      runStationD();
+      break;
     default:
       Serial.println("No station selected or station not implemented.");
       break;

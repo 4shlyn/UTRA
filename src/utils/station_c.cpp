@@ -13,11 +13,12 @@ void runStationC() {
     delay(50);
   }
 
-  // Turn towards reupload zone
+  // Turn towards reupload zone and prepare to pick up box
+  arm.lower();
   bool wasWeavingRight = (chassis.getBufferedColor() == ColorName::GREEN);
   chassis.moveTank(255, -255, wasWeavingRight ? 1000 : 1750, false);
   chassis.moveTank(255, 255);
-  
+
   // Keep going until hitting detection zone, or reset if needed
   Serial.println("Station C complete");
 }
