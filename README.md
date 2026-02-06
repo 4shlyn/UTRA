@@ -1,8 +1,10 @@
-# Vertically Inclined: UTRA Hacks Closed Challenge Submission
+# [Vertically Inclined](https://devpost.com/software/vertically-inclined): UTRA Hacks Closed Challenge Submission
 
 A modular robot control system built with Arduino framework and PlatformIO for autonomous navigation and task execution across multiple stations.
 
 Awarded 2nd Place Overall and 1st for Top Track Performance.
+
+Devpost: https://devpost.com/software/vertically-inclined
 
 ## Overview
 
